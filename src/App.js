@@ -3,6 +3,7 @@ import './App.css';
 import TopButtons from './components/TopButtons';
 import Inputs from './components/Inputs';
 import TimeLoc from './components/TimeLoc';
+import Temperature from './components/Temperature';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <TopButtons />
       <Inputs />
       <TimeLoc />
+      <Temperature />
     </div>
   );
 }

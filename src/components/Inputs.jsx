@@ -18,4 +18,4 @@ function Inputs() {
 
 }
 
-export default Inputs
+export default Inputs;
