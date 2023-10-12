@@ -1,4 +1,3 @@
-import React from 'react'
 import { UilSearch } from '@iconscout/react-unicons'
 
 function Inputs() {

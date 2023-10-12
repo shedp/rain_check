@@ -1,4 +1,3 @@
-import React from 'react'
 import { UilSun, UilArrowUp, UilArrowDown, UilTemperature, UilTear, UilWind, UilSunset } from '@iconscout/react-unicons'
 
 function Forecast({ title }) {

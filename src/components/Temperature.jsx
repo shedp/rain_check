@@ -1,4 +1,3 @@
-import React from 'react'
 import { UilSun, UilArrowUp, UilArrowDown, UilTemperature, UilTear, UilWind, UilSunset } from '@iconscout/react-unicons'
 
 function Temperature() {
@@ -35,10 +34,10 @@ function Temperature() {
                 <UilSunset />
                 <p>Sunset: <span className="font-medium">32</span></p>
                 <p>|</p>
-                <UilSun />
+                <UilArrowUp />
                 <p>High: <span className="font-medium">32</span></p>
                 <p>|</p>
-                <UilSun />
+                <UilArrowDown />
                 <p>Low: <span className="font-medium">32</span></p>
             </div>
         </div>
