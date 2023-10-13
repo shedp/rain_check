@@ -1,6 +1,6 @@
 import { UilSun, UilArrowUp, UilArrowDown, UilTemperature, UilTear, UilWind, UilSunset } from '@iconscout/react-unicons'
 
-function Forecast({ title }) {
+function Forecast({ title, time }) {
     return (
         <div>
             <div className="flex items-center justify-start my-6">
@@ -10,7 +10,7 @@ function Forecast({ title }) {
 
             <div className="flex flex-row items-center justify-between text-white">
                 <div className="flex flex-col items-center justify-center">
-                    <p className="font-light text-sm">Time</p>
+                    <p className="font-light text-sm">{time}</p>
                     <UilSun />
                     <p className="font-medium">deg</p>
                 </div>
