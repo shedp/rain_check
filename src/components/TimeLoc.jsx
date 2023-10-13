@@ -1,15 +1,15 @@
 import React from 'react'
 
-function TimeLoc() {
+function TimeLoc({ weather: { dt, timezone, city, country } }) {
     return (
         <div className="m-4">
             <div className="flex items-center justify-center my-3">
                 <p className="text-white text-xl font-extralight">
-                    date | time
+                    {dt}
                 </p>
             </div>
             <div className="flex items-center justify-center my-3">
-                <p className="text-white text-xl">City Name</p>
+                <p className="text-white text-xl">{`${city}, ${country}`}</p>
             </div>
         </div>
     )

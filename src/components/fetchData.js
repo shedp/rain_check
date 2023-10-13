@@ -20,14 +20,15 @@ const deconstructOpenWeatherMapData = (data) => {
         name: city,
         dt,
         sys: { country, sunrise, sunset },
+        timezone,
         weather,
         wind: { speed }
     } = data
     const { description, icon } = weather[0]
-    return { lat, lon, temp, feels_like, temp_max, temp_min, humidity, city, dt, country, sunrise, sunset, description, icon, speed }
+    return { lat, lon, temp, feels_like, temp_max, temp_min, humidity, city, dt, country, sunrise, sunset, description, icon, speed, timezone }
 }
 
-export const getDeconstructData = async (city_name, unit) => {
+export const getDeconstructWeatherData = async (city_name, unit) => {
     const deconstructedData = await getOpenWeatherMapAPI(city_name, unit).then(deconstructOpenWeatherMapData)
 
     return deconstructedData
@@ -45,7 +46,7 @@ const getWeatherAPI = async (city_name) => {
     }
 }
 
-const deconstructWeatherAPIData = (data) => {
+const deconstructHourlyWeatherAPIData = (data) => {
     const {
         forecast: { forecastday }
     } = data
@@ -57,17 +58,31 @@ const deconstructWeatherAPIData = (data) => {
         return { time, temp_c, temp_f, condition }
     })
 
+    return { hourlyForecast }
+}
+
+export const getDeconstructHourlyForecastData = async (city_name) => {
+    const deconstructedData = await getWeatherAPI(city_name).then(deconstructHourlyWeatherAPIData)
+
+    return deconstructedData
+}
+
+const deconstrucDailytWeatherAPIData = (data) => {
+    const {
+        forecast: { forecastday }
+    } = data
+
     const dailyForecast = forecastday.map(d => {
         const { date, day } = d
         const { avgtemp_c, avgtemp_f, condition } = day
         return { date, avgtemp_c, avgtemp_f, condition }
     })
 
-    return { hourlyForecast, dailyForecast }
+    return { dailyForecast }
 }
 
-export const getDeconstructForecastData = async (city_name) => {
-    const deconstructedData = await getWeatherAPI(city_name).then(deconstructWeatherAPIData)
+export const getDeconstructDailyForecastData = async (city_name) => {
+    const deconstructedData = await getWeatherAPI(city_name).then(deconstrucDailytWeatherAPIData)
 
     return deconstructedData
 }
