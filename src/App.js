@@ -5,6 +5,7 @@ import Temperature from './components/Temperature';
 import Forecast from './components/Forecast';
 import { getDeconstructWeatherData, getDeconstructHourlyForecastData, getDeconstructDailyForecastData } from './components/fetchData'
 import { useState, useEffect } from 'react';
+import HourlyForecast from './components/HourlyForecast';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         const data = await getDeconstructHourlyForecastData(city_name);
         setHourlyForecast(data)
         console.log(data)
+        console.log(typeof (Object.values(data)))
       } catch (err) {
         console.error('Error', err)
       }
@@ -39,19 +41,14 @@ function App() {
   }, [city_name])
 
 
-
-
-
-  // getForecastData()
-
   return (
-    <div className="mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400">
+    <div className="py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400">
       {weather && (
         <>
           <Inputs />
           <TimeLoc weather={weather} />
           <Temperature weather={weather} />
-          <Forecast title="hourly forecast" forecast={hourlyForecast} />
+          <HourlyForecast forecast={hourlyForecast} unit={unit} />
           <Forecast title="daily forecast" time="day" />
         </>
       )}

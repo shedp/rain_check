@@ -1,4 +1,5 @@
 import axios from 'axios';
+const { DateTime } = require('luxon');
 // import dotenv from 'dotenv';
 
 const getOpenWeatherMapAPI = async (city_name, unit) => {
@@ -24,8 +25,9 @@ const deconstructOpenWeatherMapData = (data) => {
         weather,
         wind: { speed }
     } = data
+    const dateTime = DateTime.fromSeconds(dt).toFormat('DDDD | HH:mm ');
     const { description, icon } = weather[0]
-    return { lat, lon, temp, feels_like, temp_max, temp_min, humidity, city, dt, country, sunrise, sunset, description, icon, speed, timezone }
+    return { lat, lon, temp, feels_like, temp_max, temp_min, humidity, city, dateTime, country, sunrise, sunset, description, icon, speed, timezone }
 }
 
 export const getDeconstructWeatherData = async (city_name, unit) => {
@@ -54,7 +56,9 @@ const deconstructHourlyWeatherAPIData = (data) => {
     } = forecastday[0]
 
     const hourlyForecast = hour.map(h => {
-        const { time, temp_c, temp_f, condition } = h
+        const { time: datetime, temp_c, temp_f, condition } = h
+        const time = DateTime.fromFormat(datetime.split(' ')[1], 'HH:mm').toFormat('h a');
+        // const formattedTime = time.toFormat('h a');
         return { time, temp_c, temp_f, condition }
     })
 
@@ -67,7 +71,7 @@ export const getDeconstructHourlyForecastData = async (city_name) => {
     return deconstructedData
 }
 
-const deconstrucDailytWeatherAPIData = (data) => {
+const deconstructDailytWeatherAPIData = (data) => {
     const {
         forecast: { forecastday }
     } = data
@@ -82,7 +86,7 @@ const deconstrucDailytWeatherAPIData = (data) => {
 }
 
 export const getDeconstructDailyForecastData = async (city_name) => {
-    const deconstructedData = await getWeatherAPI(city_name).then(deconstrucDailytWeatherAPIData)
+    const deconstructedData = await getWeatherAPI(city_name).then(deconstructDailytWeatherAPIData)
 
     return deconstructedData
 }

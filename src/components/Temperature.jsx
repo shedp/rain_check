@@ -3,16 +3,16 @@ import { UilSun, UilArrowUp, UilArrowDown, UilTemperature, UilTear, UilWind, Uil
 function Temperature({ weather: { temp, feels_like, temp_max, temp_min, humidity, sunrise, sunset, description, speed } }) {
     return (
         <div>
-            <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
+            <div className="flex items-center justify-center py-3 text-xl text-cyan-300">
                 {description}
             </div>
 
-            <div className="flex items-center justify-between py-3 text-white ">
-                <UilSun size={50} />
-                <p className="text-5xl">{`${temp}`}</p>
+            <div className="flex items-center justify-around py-3 text-white ">
+                <UilSun size={50} className="flex-1" />
+                <p className="text-5xl flex-1">{`${temp}`}</p>
 
                 <div className="flex flex-col space-y-2">
-                    <div className="flex font-light text-small item-center justify-center">
+                    <div className="flex flex-1 font-light text-small item-center justify-center">
                         <UilTemperature />
                         Feels like: <span className="font-medium ml-1">{`${feels_like}`}</span>
                     </div>

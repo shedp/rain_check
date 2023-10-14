@@ -1,4 +1,4 @@
-import { UilSun, UilArrowUp, UilArrowDown, UilTemperature, UilTear, UilWind, UilSunset } from '@iconscout/react-unicons'
+import { UilSun } from '@iconscout/react-unicons'
 
 function Forecast({ title, forecast }) {
     return (
