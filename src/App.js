@@ -31,8 +31,8 @@ function App() {
       try {
         const data = await getDeconstructHourlyForecastData(city_name);
         setHourlyForecast(data)
-        console.log(data)
-        console.log(typeof (Object.values(data)))
+        console.log(data.hourlyForecast)
+        console.log(Object.values(data.hourlyForecast))
       } catch (err) {
         console.error('Error', err)
       }
@@ -47,7 +47,7 @@ function App() {
         <>
           <Inputs />
           <TimeLoc weather={weather} />
-          <Temperature weather={weather} />
+          <Temperature weather={weather} unit={unit} />
           <HourlyForecast forecast={hourlyForecast} unit={unit} />
           <Forecast title="daily forecast" time="day" />
         </>

@@ -1,6 +1,6 @@
 import { UilSun, UilArrowUp, UilArrowDown, UilTemperature, UilTear, UilWind, UilSunset } from '@iconscout/react-unicons'
 
-function Temperature({ weather: { temp, feels_like, temp_max, temp_min, humidity, sunrise, sunset, description, speed } }) {
+function Temperature({ weather: { temp, feels_like, temp_max, temp_min, humidity, sunrise, sunset, description, speed }, unit }) {
     return (
         <div>
             <div className="flex items-center justify-center py-3 text-xl text-cyan-300">
@@ -9,7 +9,7 @@ function Temperature({ weather: { temp, feels_like, temp_max, temp_min, humidity
 
             <div className="flex items-center justify-around py-3 text-white ">
                 <UilSun size={50} className="flex-1" />
-                <p className="text-5xl flex-1">{`${temp}`}</p>
+                <p className="text-5xl flex-1">{unit == "imperial" ? `${temp}°F` : `${temp}°C`}</p>
 
                 <div className="flex flex-col space-y-2">
                     <div className="flex flex-1 font-light text-small item-center justify-center">
