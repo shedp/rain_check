@@ -2,10 +2,10 @@ import './App.css';
 import Inputs from './components/Inputs';
 import TimeLoc from './components/TimeLoc';
 import Temperature from './components/Temperature';
-import Forecast from './components/Forecast';
 import { getDeconstructWeatherData, getDeconstructHourlyForecastData, getDeconstructDailyForecastData } from './components/fetchData'
 import { useState, useEffect } from 'react';
 import HourlyForecast from './components/HourlyForecast';
+import DailyForecast from './components/DailyForecast';
 
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
   const [unit, setUnit] = useState('metric')
   const [weather, setWeather] = useState(null)
   const [hourlyForecast, setHourlyForecast] = useState(null)
+  const [dailyForecast, setDailyForecast] = useState(null)
 
   useEffect(() => {
     const getWeatherData = async () => {
@@ -31,13 +32,25 @@ function App() {
       try {
         const data = await getDeconstructHourlyForecastData(city_name);
         setHourlyForecast(data)
-        console.log(data.hourlyForecast)
-        console.log(Object.values(data.hourlyForecast))
       } catch (err) {
         console.error('Error', err)
       }
     }
     getHourlyForecast()
+  }, [city_name])
+
+  useEffect(() => {
+    const getDailyForecast = async () => {
+      try {
+        const data = await getDeconstructDailyForecastData(city_name);
+        setDailyForecast(data)
+        console.log(data.dailyForecast)
+        console.log(typeof (data.dailyForecast))
+      } catch (err) {
+        console.error('Error', err)
+      }
+    }
+    getDailyForecast()
   }, [city_name])
 
 
@@ -49,7 +62,7 @@ function App() {
           <TimeLoc weather={weather} />
           <Temperature weather={weather} unit={unit} />
           <HourlyForecast forecast={hourlyForecast} unit={unit} />
-          <Forecast title="daily forecast" time="day" />
+          <DailyForecast forecast={dailyForecast} unit={unit} />
         </>
       )}
 

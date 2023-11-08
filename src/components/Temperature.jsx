@@ -3,7 +3,7 @@ import { UilSun, UilArrowUp, UilArrowDown, UilTemperature, UilTear, UilWind, Uil
 function Temperature({ weather: { temp, feels_like, temp_max, temp_min, humidity, sunrise, sunset, description, speed }, unit }) {
     return (
         <div>
-            <div className="flex items-center justify-center py-3 text-xl text-cyan-300">
+            <div className="flex items-center justify-center py-3 text-xl text-cyan-300 capitalize">
                 {description}
             </div>
 

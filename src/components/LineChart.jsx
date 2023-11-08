@@ -17,8 +17,7 @@ const LineChart = ({ forecast, unit }) => {
                 borderWidth: 1.5, // Smooth line width
                 backgroundColor: 'transparent',
                 pointRadius: 0, // Data point size
-                pointBackgroundColor: 'transparent', // Data point color
-                tension: 0.4, // Adjust this for smoothness
+                tension: 0.4
             },
         ],
     };

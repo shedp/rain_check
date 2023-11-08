@@ -2,6 +2,7 @@ import axios from 'axios';
 const { DateTime } = require('luxon');
 // import dotenv from 'dotenv';
 
+//Fetch dara from the OpenWeatehr MapAPI
 const getOpenWeatherMapAPI = async (city_name, unit) => {
     const apiKey = process.env.REACT_APP_OPENWEATHER_KEY
     let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${apiKey}&units=${unit}`
@@ -38,7 +39,7 @@ export const getDeconstructWeatherData = async (city_name, unit) => {
 
 const getWeatherAPI = async (city_name) => {
     const apiKey = process.env.REACT_APP_WEATHERAPI_KEY
-    let apiURL = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city_name}&days=5&aqi=no&alerts=no`
+    let apiURL = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city_name}&aqi=no&alerts=no&days=5`
     try {
         const res = await axios.get(apiURL)
         const data = await res.data
