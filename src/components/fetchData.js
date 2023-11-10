@@ -26,7 +26,7 @@ const deconstructOpenWeatherMapData = (data) => {
         weather,
         wind: { speed }
     } = data
-    const dateTime = DateTime.fromSeconds(dt).toFormat('DDDD | HH:mm ');
+    const dateTime = DateTime.fromSeconds(dt).toFormat('DDDD | hh:mm a');
     const { description, icon } = weather[0]
     return { lat, lon, temp, feels_like, temp_max, temp_min, humidity, city, dateTime, country, sunrise, sunset, description, icon, speed, timezone }
 }
