@@ -1,5 +1,5 @@
 import { UilArrowUp, UilArrowDown, UilTemperature, UilTear, UilWind, UilSun, UilSunset } from '@iconscout/react-unicons'
-import RenderIcon from './RenderIcon.jsx';
+import RenderIconOWM from './RenderIconOWM.jsx';
 
 function Temperature({ weather: { temp, feels_like, temp_max, temp_min, humidity, sunrise, sunset, description, icon, speed }, unit }) {
 
@@ -10,7 +10,7 @@ function Temperature({ weather: { temp, feels_like, temp_max, temp_min, humidity
             </div>
 
             <div className="flex items-center justify-around py-3 text-white ">
-                {RenderIcon(icon)}
+                {RenderIconOWM(icon)}
                 <p className="text-5xl flex-1">{unit === "imperial" ? `${temp}°F` : `${temp}°C`}</p>
 
                 <div className="flex flex-col space-y-2">

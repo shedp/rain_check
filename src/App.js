@@ -9,7 +9,7 @@ import DailyForecast from './components/DailyForecast';
 
 
 function App() {
-  const [city_name, setCity_Name] = useState('london')
+  const [city_name, setCity_Name] = useState('tokyo')
   const [unit, setUnit] = useState('metric')
   const [weather, setWeather] = useState(null)
   const [hourlyForecast, setHourlyForecast] = useState(null)
@@ -20,7 +20,6 @@ function App() {
       try {
         const data = await getDeconstructWeatherData(city_name, unit);
         setWeather(data)
-        console.log(data)
       } catch (err) {
         console.error('Error', err)
       }

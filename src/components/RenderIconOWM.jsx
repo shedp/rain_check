@@ -1,6 +1,6 @@
 import { UilSun, UilMoon, UilCloudSun, UilCloudMoon, UilCloud, UilClouds, UilCloudSunRain, UilCloudMoonRain, UilCloudShowersHeavy, UilThunderstorm, UilSnowflake, UilCloudWind } from '@iconscout/react-unicons'
 
-function RenderIcon({ icon }) {
+function RenderIconOWM({ icon }) {
     let weatherIcon;
     console.log(icon)
     switch (icon) {
@@ -63,4 +63,4 @@ function RenderIcon({ icon }) {
     return weatherIcon
 }
 
-export default RenderIcon;
+export default RenderIconOWM;
