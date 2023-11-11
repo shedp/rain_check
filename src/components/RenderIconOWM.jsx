@@ -1,9 +1,9 @@
 import { UilSun, UilMoon, UilCloudSun, UilCloudMoon, UilCloud, UilClouds, UilCloudSunRain, UilCloudMoonRain, UilCloudShowersHeavy, UilThunderstorm, UilSnowflake, UilCloudWind } from '@iconscout/react-unicons'
 
-function RenderIconOWM({ icon }) {
+function RenderIconOWM(props) {
     let weatherIcon;
-    console.log(icon)
-    switch (icon) {
+
+    switch (props.icon) {
         case ("01n"):
             weatherIcon = <UilMoon size={50} className="flex-1" />
             break;

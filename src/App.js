@@ -9,7 +9,7 @@ import DailyForecast from './components/DailyForecast';
 
 
 function App() {
-  const [city_name, setCity_Name] = useState('tokyo')
+  const [city_name, setCity_Name] = useState('london')
   const [unit, setUnit] = useState('metric')
   const [weather, setWeather] = useState(null)
   const [hourlyForecast, setHourlyForecast] = useState(null)
