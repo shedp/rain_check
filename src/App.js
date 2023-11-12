@@ -20,6 +20,7 @@ function App() {
       try {
         const data = await getDeconstructWeatherData(city_name, unit);
         setWeather(data)
+        console.log(data)
       } catch (err) {
         console.error('Error', err)
       }
