@@ -1,57 +1,93 @@
-import { UilSun, UilMoon, UilCloudSun, UilCloudMoon, UilCloud, UilClouds, UilCloudSunRain, UilCloudMoonRain, UilCloudShowersHeavy, UilThunderstorm, UilSnowflake, UilCloudWind } from '@iconscout/react-unicons'
+import { UilSun, UilCloudHail, UilCloudSun, UilCloud, UilClouds, UilCloudSunRain, UilCloudShowersHeavy, UilThunderstorm, UilSnowflake, UilCloudWind } from '@iconscout/react-unicons'
 
-function RenderIconOWM({ icon }) {
+function RenderIconWAPI({ icon }) {
     let weatherIcon;
-    console.log(icon)
-    switch (icon) {
-        case ("01n"):
-            weatherIcon = <UilMoon size={50} className="flex-1" />
-            break;
+    // let iconWAPI = props.icon
+    // let iconWAPI = "//cdn.weatherapi.com/weather/64x64/day/116.png"
 
-        case ("02d"):
+
+    function extractCode(string) {
+        const match = string.match(/(\d+).png/)
+        return match[1]
+    }
+
+    let iconCode = extractCode(icon)
+
+    switch (iconCode) {
+        // Part cloud
+        case ("116"):
             weatherIcon = <UilCloudSun size={50} className="flex-1" />
             break;
-
-        case ("02n"):
-            weatherIcon = <UilCloudMoon size={50} className="flex-1" />
-            break;
-
-        case ("03d"):
-        case ("03n"):
+        // clouds
+        case ("119"):
             weatherIcon = <UilCloud size={50} className="flex-1" />
             break;
-
-        case ("04d"):
-        case ("04n"):
+        // cloudy
+        case ("112"):
             weatherIcon = <UilClouds size={50} className="flex-1" />
             break;
 
-
-        case ("09d"):
+        // light rain, patchy rain
+        case ("353"):
+        case ("305"):
+        case ("299"):
+        case ("296"):
+        case ("293"):
+        case ("263"):
+        case ("176"):
+        case ("281"):
+        case ("311"):
             weatherIcon = <UilCloudSunRain size={50} className="flex-1" />
             break;
-
-        case ("09n"):
-            weatherIcon = <UilCloudMoonRain size={50} className="flex-1" />
-            break;
-
-        case ("10d"):
-        case ("10n"):
+        // rain, heavy rain
+        case ("356"):
+        case ("359"):
+        case ("314"):
+        case ("302"):
+        case ("185"):
+        case ("284"):
+        case ("308"):
             weatherIcon = <UilCloudShowersHeavy size={50} className="flex-1" />
             break;
-
-        case ("11d"):
-        case ("11n"):
+        // all cases of thunder
+        case ("395"):
+        case ("392"):
+        case ("389"):
+        case ("386"):
+        case ("200"):
             weatherIcon = <UilThunderstorm size={50} className="flex-1" />
             break;
 
-        case ("13d"):
-        case ("13n"):
+        // all cases of snow
+        case ("179"):
+        case ("227"):
+        case ("230"):
+        case ("323"):
+        case ("332"):
+        case ("335"):
+        case ("338"):
+        case ("326"):
+        case ("329"):
+        case ("374"):
+        case ("368"):
             weatherIcon = <UilSnowflake size={50} className="flex-1" />
             break;
 
-        case ("50d"):
-        case ("50n"):
+        // sleet
+        case ("365"):
+        case ("350"):
+        case ("271"):
+        case ("362"):
+        case ("317"):
+        case ("182"):
+        case ("320"):
+        case ("377"):
+            weatherIcon = < UilCloudHail size={50} className="flex-1" />
+            break;
+        // mist or fog
+        case ("248"):
+        case ("260"):
+        case ("143"):
             weatherIcon = <UilCloudWind size={50} className="flex-1" />
             break;
 
@@ -63,4 +99,4 @@ function RenderIconOWM({ icon }) {
     return weatherIcon
 }
 
-export default RenderIconOWM;
+export default RenderIconWAPI;

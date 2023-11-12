@@ -1,4 +1,4 @@
-import { UilSun } from '@iconscout/react-unicons'
+import RenderIconWAPI from './RenderIconWAPI.jsx'
 const { DateTime } = require('luxon');
 
 function DailyForecast({ forecast, unit }) {
@@ -25,9 +25,9 @@ function DailyForecast({ forecast, unit }) {
             <hr className="my-2" />
             <div className="flex flex-row items-center justify-between text-white">
                 {forecast && forecast.dailyForecast.map((date, index) => (
-                    <div className="flex flex-col items-center justify-center" key={index}>
+                    <div className="flex flex-col items-center justify-center" key={index} >
                         <p className="font-light text-sm">{formatDate(date.date)}</p>
-                        <UilSun />
+                        <RenderIconWAPI icon={date.condition.icon} />
                         {unit === "imperial" ? (
                             <p className="font-medium">{date.avgtemp_f}</p>
                         ) : (
@@ -37,7 +37,7 @@ function DailyForecast({ forecast, unit }) {
                 ))}
             </div>
 
-        </div>
+        </div >
     )
 }
 
