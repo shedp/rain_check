@@ -58,7 +58,7 @@ function App() {
     <div className="py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400">
       {weather && (
         <>
-          <Inputs />
+          <Inputs setCity_Name={setCity_Name} unit={unit} setUnit={setUnit} />
           <TimeLoc weather={weather} />
           <Temperature weather={weather} unit={unit} />
           <HourlyForecast forecast={hourlyForecast} unit={unit} />
