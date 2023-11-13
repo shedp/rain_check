@@ -1,4 +1,4 @@
-## Rain Check
+# Rain Check
 **_Have you had a Rain Check?_**
 
 This is a weather app that show an hourly and daily forecast of the weather for wherever you choose.
