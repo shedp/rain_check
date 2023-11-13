@@ -13,7 +13,9 @@ This is a solo frontend project which utilises a weather API with React.js and T
 ### API Keys
 You will need to make a `.env` file in the root directory containing 3 API keys:
     `REACT_APP_OPENWEATHER_KEY=your_key`
+
     `REACT_APP_WEATHERAPI_KEY=your_key`
+    
     `REACT_APP_BING_API_KEY=your_key`
 
 ## Technologies
