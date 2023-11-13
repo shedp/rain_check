@@ -12,9 +12,9 @@ This is a solo frontend project which utilises a weather API with React.js and T
 - It should run on `http://localhost:3000/`
 ### API Keys
 You will need to make a `.env` file in the root directory containing 3 API keys:
-    `REACT_APP_OPENWEATHER_KEY=your_key
-    REACT_APP_WEATHERAPI_KEY=your_key
-    REACT_APP_BING_API_KEY=your_key`
+    `REACT_APP_OPENWEATHER_KEY=your_key`
+    `REACT_APP_WEATHERAPI_KEY=your_key`
+    `REACT_APP_BING_API_KEY=your_key`
 
 ## Technologies
 - React.js
@@ -38,5 +38,5 @@ You will need to make a `.env` file in the root directory containing 3 API keys:
 - Having to introduce a second weather aPI as the first did not have the information I needed
 - Converting using UTC and timezones to get local time
 
-### Future
+## Future
 - Switch to a single weather API
