@@ -59,7 +59,7 @@ export const getDeconstructWeatherData = async (city_name, unit) => {
 
 const getWeatherAPI = async (city_name) => {
     const apiKey = process.env.REACT_APP_WEATHERAPI_KEY
-    let apiURL = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city_name}&aqi=no&alerts=no&days=5`
+    let apiURL = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city_name}&aqi=no&alerts=no&days=7`
     try {
         const res = await axios.get(apiURL)
         const data = await res.data

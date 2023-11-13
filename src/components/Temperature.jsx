@@ -4,42 +4,38 @@ import RenderIconOWM from './RenderIconOWM.jsx';
 function Temperature({ weather: { temp, feels_like, temp_max, temp_min, humidity, sunrise, sunset, description, icon, speed }, unit }) {
     return (
         <div>
-            <div className="flex items-center justify-center py-3 text-xl text-cyan-300 capitalize">
+            <div className="flex items-center justify-center py-3 text-xl text-white bhy capitalize width-100">
                 {description}
             </div>
 
-            <div className="flex items-center justify-around py-3 text-white ">
-                <RenderIconOWM icon={icon} />
-                <p className="text-5xl flex-1">{unit === "imperial" ? `${temp}°F` : `${temp}°C`}</p>
-
-                <div className="flex flex-col space-y-2">
-                    <div className="flex flex-1 font-light text-small item-center justify-center">
-                        <UilTemperature />
-                        Feels like: <span className="font-medium ml-1">{unit === "imperial" ? `${feels_like}°F` : `${feels_like}°C`}</span>
-                    </div>
-                    <div className="flex font-light text-small item-center justify-center">
-                        <UilTear />
-                        Humidity: <span className="font-medium ml-1">{`${humidity}%`}</span>
-                    </div>
-                    <div className="flex font-light text-small item-center justify-center">
-                        <UilWind />
-                        Wind Speed: <span className="font-medium ml-1">{`${speed}`}</span>
-                    </div>
-                </div>
+            <div className="grid grid-cols-3 w-full py-3 text-white ">
+                <div className="flex items-center"><RenderIconOWM icon={icon} /></div>
+                <div><p className="text-center text-5xl flex-1 width-1/3">{unit === "imperial" ? `${temp}°F` : `${temp}°C`}</p></div>
             </div>
             <span></span>
+
+            <div className="flex flex-row item-center justify-center space-x-2 text-white text-sm font-light">
+                <UilTemperature />
+                <p>Feels Like: <span className="font-medium">{`${unit === "imperial" ? `${feels_like}°F` : `${feels_like}°C`}`}</span></p>
+                <p>|</p>
+                <UilTear />
+                <p>Humidity: <span className="font-medium">{`${humidity}%`}</span></p>
+                <p>|</p>
+                <UilWind />
+                <p>Wind Speed: <span className="font-medium ml-1">{`${speed}`}</span></p>
+                <p>|</p>
+                <UilArrowUp />
+                <p>High: <span className="font-medium">{unit === "imperial" ? `${temp_max}°F` : `${temp_max}°C`}</span></p>
+                <p>|</p>
+                <UilArrowDown />
+                <p>Low: <span className="font-medium">{unit === "imperial" ? `${temp_min}°F` : `${temp_min}°C`}</span></p>
+            </div>
             <div className="flex flex-row item-center justify-center space-x-2 text-white text-sm font-light">
                 <UilSun />
                 <p>Sunrise: <span className="font-medium">{`${sunrise}`}</span></p>
                 <p>|</p>
                 <UilSunset />
                 <p>Sunset: <span className="font-medium">{`${sunset}`}</span></p>
-                <p>|</p>
-                <UilArrowUp />
-                <p>High: <span className="font-medium">{`${temp_max}`}</span></p>
-                <p>|</p>
-                <UilArrowDown />
-                <p>Low: <span className="font-medium">{`${temp_min}`}</span></p>
             </div>
         </div>
 
