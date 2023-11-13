@@ -1,0 +1,13 @@
+#responsive950 {
+    display: none
+}
+
+@media (max-width: 950px) {
+    #responsiveFull {
+        display: none
+    }
+
+    #responsive950 {
+        display: flex
+    }
+}

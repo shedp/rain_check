@@ -1,5 +1,6 @@
 import { UilSun, UilSunset } from '@iconscout/react-unicons'
 import LineChart from './LineChart';
+import styles from './HourlyForecast.module.css'
 
 function HourlyForecast({ forecast, unit }) {
     return (
@@ -12,17 +13,22 @@ function HourlyForecast({ forecast, unit }) {
                 <div>
                     {forecast && <LineChart forecast={forecast} unit={unit} />}
                 </div>
-                <div className="flex flex-row items-center justify-between text-white">
+                <div className="flex flex-row items-center justify-between text-white" id={styles.responsiveFull}>
                     {forecast && forecast.hourlyForecast.map((hour, index) => (
                         <div className="flex flex-col items-center justify-center" key={index}>
                             <p className="font-light text-sm">{hour.time}</p>
-                            {/* {unit === "imperial" ? (
-                                <p className="font-medium">{hour.temp_f}</p>
-                            ) : (
-                                <p className="font-medium">{hour.temp_c}</p>
-                            )} */}
                         </div>
                     ))}
+                </div>
+                <div className="flex-row items-center justify-between text-white" id={styles.responsive950}>
+                    {forecast &&
+                        forecast.hourlyForecast.map((hour, index) =>
+                            index % 2 === 0 ? (
+                                <div className="flex flex-col items-center justify-center" key={index}>
+                                    <p className="font-light text-sm">{hour.time}</p>
+                                </div>
+                            ) : null
+                        )}
                 </div>
             </>
 
