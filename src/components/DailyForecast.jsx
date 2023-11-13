@@ -23,15 +23,15 @@ function DailyForecast({ forecast, unit }) {
                 <p className="text-white font-medium uppercase">Daily Forecast</p>
             </div>
             <hr className="my-2" />
-            <div className="flex flex-row items-center justify-between text-white">
+            <div className="flex flex-row items-center justify-between text-white py-5">
                 {forecast && forecast.dailyForecast.map((date, index) => (
                     <div className="flex flex-col items-center justify-center" key={index} >
-                        <p className="font-light text-sm">{formatDate(date.date)}</p>
+                        <p className="font-light text-sm py-2">{formatDate(date.date)}</p>
                         <RenderIconWAPI icon={date.condition.icon} />
                         {unit === "imperial" ? (
-                            <p className="font-medium">{date.avgtemp_f}°F</p>
+                            <p className="font-medium py-2">{date.avgtemp_f}°F</p>
                         ) : (
-                            <p className="font-medium">{date.avgtemp_c}°C</p>
+                            <p className="font-medium py-2">{date.avgtemp_c}°C</p>
                         )}
                     </div>
                 ))}

@@ -10,7 +10,7 @@ function HourlyForecast({ forecast, unit }) {
             </div>
             <hr className="my-2" />
             <>
-                <div>
+                <div className="py-5">
                     {forecast && <LineChart forecast={forecast} unit={unit} />}
                 </div>
                 <div className="flex flex-row items-center justify-between text-white" id={styles.responsiveFull}>
