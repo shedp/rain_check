@@ -1,0 +1,9 @@
+.footer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: fixed;
+    bottom: 1rem;
+    left: 0;
+    box-sizing: border-box;
+}

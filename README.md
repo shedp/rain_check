@@ -15,8 +15,10 @@ You will need to make a `.env` file in the root directory containing 3 API keys:
     `REACT_APP_OPENWEATHER_KEY=your_key`
 
     `REACT_APP_WEATHERAPI_KEY=your_key`
-    
+
     `REACT_APP_BING_API_KEY=your_key`
+
+    `REACT_APP_UNSPLASH_KEY=your_key`
 
 ## Technologies
 - React.js
