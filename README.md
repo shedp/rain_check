@@ -1,7 +1,9 @@
 ## Rain Check
+**_Have you had a Rain Check?_**
+
 This is a weather app that show an hourly and daily forecast of the weather for wherever you choose.
 
-This is a solo frontend project which utilises a weather API with React.js and Tailwind CSS and was coded by myself @shedp
+This is a solo frontend project which utilises a weather API with React.js and Tailwind CSS and was coded by myself [@shedp](https://github.com/shedp)
 
 ## Installation and Usage
 - Clone this repo and navigate to root directory
