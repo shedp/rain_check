@@ -29,9 +29,9 @@ function DailyForecast({ forecast, unit }) {
                         <p className="font-light text-sm">{formatDate(date.date)}</p>
                         <RenderIconWAPI icon={date.condition.icon} />
                         {unit === "imperial" ? (
-                            <p className="font-medium">{date.avgtemp_f}</p>
+                            <p className="font-medium">{date.avgtemp_f}°F</p>
                         ) : (
-                            <p className="font-medium">{date.avgtemp_c}</p>
+                            <p className="font-medium">{date.avgtemp_c}°C</p>
                         )}
                     </div>
                 ))}
