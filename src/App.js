@@ -6,6 +6,7 @@ import { getDeconstructWeatherData, getDeconstructHourlyForecastData, getDeconst
 import { useState, useEffect } from 'react';
 import HourlyForecast from './components/HourlyForecast';
 import DailyForecast from './components/DailyForecast';
+import Background from './components/Background';
 
 
 function App() {
@@ -55,14 +56,16 @@ function App() {
 
 
   return (
-    <div className="py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400">
+    <div className="py-5 px-24 from-cyan-700 to-blue-700 h-full">
       {weather && (
         <>
+
           <Inputs setCity_Name={setCity_Name} unit={unit} setUnit={setUnit} />
           <TimeLoc weather={weather} />
           <Temperature weather={weather} unit={unit} />
           <HourlyForecast forecast={hourlyForecast} unit={unit} />
           <DailyForecast forecast={dailyForecast} unit={unit} />
+          <Background city={city_name} />
         </>
       )}
 
