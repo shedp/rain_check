@@ -15,11 +15,11 @@ function Temperature({ weather: { temp, feels_like, temp_max, temp_min, humidity
                 <div className="flex flex-col space-y-2">
                     <div className="flex flex-1 font-light text-small item-center justify-center">
                         <UilTemperature />
-                        Feels like: <span className="font-medium ml-1">{`${feels_like}`}</span>
+                        Feels like: <span className="font-medium ml-1">{unit === "imperial" ? `${feels_like}°F` : `${feels_like}°C`}</span>
                     </div>
                     <div className="flex font-light text-small item-center justify-center">
                         <UilTear />
-                        Humidity: <span className="font-medium ml-1">{`${humidity}`}</span>
+                        Humidity: <span className="font-medium ml-1">{`${humidity}%`}</span>
                     </div>
                     <div className="flex font-light text-small item-center justify-center">
                         <UilWind />

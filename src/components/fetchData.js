@@ -8,6 +8,7 @@ const findTimeZone = async (lon, lat) => {
     try {
         const res = await axios.get(apiURL)
         const data = await res.data
+        console.log(data)
         return data
     } catch (err) {
         console.warn(err)
@@ -20,7 +21,7 @@ const getLocalTime = (secs, lat, lon, format = "'cccc, dd LLL yyyy | hh:mm a'") 
     return currentDateTime.setZone(timezone).toFormat(format);
 }
 
-//Fetch data from the OpenWeatehr MapAPI
+// Fetch data from the OpenWeatehr MapAPI
 const getOpenWeatherMapAPI = async (city_name, unit) => {
     const apiKey = process.env.REACT_APP_OPENWEATHER_KEY
     let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${apiKey}&units=${unit}`

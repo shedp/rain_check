@@ -35,7 +35,7 @@ You will need to make a `.env` file in the root directory containing 3 API keys:
 - Using Luxon to format the datetime
 
 ### Challenges
-- Having to introduce a second weather aPI as the first did not have the information I needed
+- Having to introduce a second weather API as the first did not have the information I needed
 - Converting using UTC and timezones to get local time
 
 ## Future
