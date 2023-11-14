@@ -1,0 +1,24 @@
+/* #inputBar {
+    width: 100%;
+} */
+
+#form {
+    flex-direction: row;
+    flex-direction: row;
+}
+
+#inputs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+@media (max-width:720px) {
+    #inputs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #unitBtn {
+        justify-content: center;
+    }
+}
