@@ -32,7 +32,6 @@ function App() {
       try {
         const data = await getDeconstructWeatherData(city_name, unit);
         setWeather(data)
-        console.log(data)
       } catch (err) {
         console.error('Error', err)
       }
@@ -57,7 +56,6 @@ function App() {
       try {
         const data = await getDeconstructDailyForecastData(city_name);
         setDailyForecast(data)
-        console.log(data)
       } catch (err) {
         console.error('Error', err)
       }
