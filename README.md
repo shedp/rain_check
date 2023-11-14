@@ -5,6 +5,8 @@ This is a weather app that show an hourly and daily forecast of the weather for 
 
 This is a solo frontend project which utilises a weather API with React.js and Tailwind CSS and was coded by myself [@shedp](https://github.com/shedp)
 
+**This project is deployed on [Netlify](https://unique-palmier-9835d9.netlify.app/)**
+
 ## Installation and Usage
 - Clone this repo and navigate to root directory
 - Run `npm install`
