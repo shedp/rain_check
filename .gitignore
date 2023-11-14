@@ -1,4 +1,3 @@
 /node_modules
-/dotenv
-# Local Netlify folder
 .netlify
+.env
