@@ -23,7 +23,7 @@ function Temperature({ weather: { temp, feels_like, temp_max, temp_min, humidity
                 <p>Humidity: <span className="font-medium">{`${humidity}%`}</span></p>
                 <p>|</p>
                 <UilWind />
-                <p>Wind Speed: <span className="font-medium ml-1">{`${speed}`}</span></p>
+                <p>Wind Speed: <span className="font-medium ml-1">{unit === "imperial" ? `${speed} mph` : `${speed} kmph`}</span></p>
                 <p>|</p>
                 <UilArrowUp />
                 <p>High: <span className="font-medium">{unit === "imperial" ? `${temp_max}°F` : `${temp_max}°C`}</span></p>
