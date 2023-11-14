@@ -23,7 +23,7 @@ function DailyForecast({ forecast, unit }) {
                 <p className="text-white font-medium uppercase">Daily Forecast</p>
             </div>
             <hr className="my-2" />
-            <div className="flex flex-row items-center justify-between text-white py-5">
+            <div className="flex flex-row items-center justify-around text-white py-5">
                 {forecast && forecast.dailyForecast.map((date, index) => (
                     <div className="flex flex-col items-center justify-center" key={index} >
                         <p className="font-light text-sm py-2">{formatDate(date.date)}</p>

@@ -8,7 +8,7 @@ const Background = ({ city }) => {
     const [photographer, setPhotographer] = useState(null);
     const [photographerUrl, setPhotographerUrl] = useState(null);
     const [photoUrl, setPhotoUrl] = useState(null);
-    const [photoLocation, setPhotoLocation] = useState('');
+    const [photo, setPhoto] = useState(null);
 
 
     useEffect(() => {
@@ -20,6 +20,7 @@ const Background = ({ city }) => {
                 setPhotographer(randomPhoto.user.name);
                 setPhotographerUrl(randomPhoto.user.links.html + '?utm_source=rain_check&utm_medium=referral');
                 setPhotoUrl(randomPhoto.links.html + '?utm_source=rain_check&utm_medium=referral');
+                randomPhoto.description.length < 24 ? setPhoto(randomPhoto.description) : setPhoto("Photo")
 
             } catch (err) {
                 console.error(err)
@@ -29,16 +30,16 @@ const Background = ({ city }) => {
     }, [city]);
 
 
-    let divStyle = {
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), url("${backgroundUrl}")`,
+    let bgStyle = {
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.85)), url("${backgroundUrl}")`,
         backgroundSize: "cover",
         backgroundRepeat: "repeat",
         backgroundPosition: "center center",
-        position: "absolute",
+        position: "fixed",
         top: 0,
         left: 0,
         zIndex: -100,
-        width: "100%",
+        width: '100%',
         height: "100%",
         padding: 0,
         margin: 0,
@@ -46,16 +47,16 @@ const Background = ({ city }) => {
 
     return (
         <>
-            <div style={divStyle}>
+            <div style={bgStyle}>
             </div>
             <div className={styles.footer}>
-                <div className="text-white pl-24">
-                    <a href="https://github.com/shedp/rain_check" target="_blank">Open Sourced</a> /
-                    <a href="https://github.com/shedp" target="_blank"> Sheena Diep</a>
+                <div className="text-white">
+                    <a href="https://github.com/shedp/rain_check" target="_blank" rel="noreferrer">Open Sourced</a> /
+                    <a href="https://github.com/shedp" target="_blank" rel="noreferrer"> Sheena Diep</a>
                 </div>
-                <div className="text-white text-center">
-                    <a href={photoUrl} target="_blank">Photo</a> /
-                    <a href={photographerUrl} target="_blank"> {photographer}</a>
+                <div className="text-white text-center capitalize">
+                    <a href={photoUrl} target="_blank" rel="noreferrer">{photo}</a> /
+                    <a href={photographerUrl} target="_blank" rel="noreferrer"> {photographer}</a>
                 </div>
                 <div></div>
             </div >

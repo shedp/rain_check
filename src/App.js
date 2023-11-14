@@ -7,14 +7,24 @@ import { useState, useEffect } from 'react';
 import HourlyForecast from './components/HourlyForecast';
 import DailyForecast from './components/DailyForecast';
 import Background from './components/Background';
-
+import './App.css';
 
 function App() {
+  const [showContent, setShowContent] = useState(false);
   const [city_name, setCity_Name] = useState('london')
   const [unit, setUnit] = useState('metric')
   const [weather, setWeather] = useState(null)
   const [hourlyForecast, setHourlyForecast] = useState(null)
   const [dailyForecast, setDailyForecast] = useState(null)
+
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      setShowContent(true);
+    }, 1000);
+
+    return () => clearTimeout(delay);
+  }, []);
+
 
   useEffect(() => {
     const getWeatherData = async () => {
@@ -56,7 +66,7 @@ function App() {
 
 
   return (
-    <div className="py-5 px-24 from-cyan-700 to-blue-700 h-full">
+    <div className={`content ${showContent ? 'visible' : ''} py-5 px-24 from-cyan-700 to-blue-700 h-full`}>
       {weather && (
         <>
 

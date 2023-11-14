@@ -1,0 +1,15 @@
+#responsive740,
+#responsive7402 {
+    display: none
+}
+
+@media (max-width: 740px) {
+    #responsiveFull {
+        display: none
+    }
+
+    #responsive740,
+    #responsive7402 {
+        display: flex
+    }
+}
