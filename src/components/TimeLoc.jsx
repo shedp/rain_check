@@ -1,6 +1,4 @@
-import React from 'react'
-
-function TimeLoc({ weather: { dateTime, timezone, city, country } }) {
+function TimeLoc({ weather: { dateTime, city, country } }) {
     return (
         <div className="m-4">
             <div className="flex items-center justify-center my-3">

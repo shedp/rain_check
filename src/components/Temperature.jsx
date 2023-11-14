@@ -1,7 +1,7 @@
 import { UilArrowUp, UilArrowDown, UilTemperature, UilTear, UilWind, UilSun, UilSunset } from '@iconscout/react-unicons'
 import RenderIconOWM from './RenderIconOWM.jsx';
 
-function Temperature({ weather: { temp, feels_like, temp_max, temp_min, humidity, sunrise, sunset, description, icon, speed }, unit }) {
+function Temperature({ weather: { temp, feels_like, temp_max, temp_min, humidity, localSunrise, localSunset, description, icon, speed }, unit }) {
     return (
         <div>
             <div className="flex items-center justify-center py-3 text-xl text-white bhy capitalize width-100">
@@ -32,10 +32,10 @@ function Temperature({ weather: { temp, feels_like, temp_max, temp_min, humidity
             </div>
             <div className="flex flex-row item-center justify-center space-x-2 text-white text-sm font-light">
                 <UilSun />
-                <p>Sunrise: <span className="font-medium">{`${sunrise}`}</span></p>
+                <p>Sunrise: <span className="font-medium">{`${localSunrise}`}</span></p>
                 <p>|</p>
                 <UilSunset />
-                <p>Sunset: <span className="font-medium">{`${sunset}`}</span></p>
+                <p>Sunset: <span className="font-medium">{`${localSunset}`}</span></p>
             </div>
         </div>
 

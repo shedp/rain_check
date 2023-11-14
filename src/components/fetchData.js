@@ -2,24 +2,26 @@ import axios from 'axios';
 const { DateTime } = require('luxon');
 // import dotenv from 'dotenv';
 
-const findTimeZone = async (lon, lat) => {
-    const apiKey = process.env.REACT_APP_BING_API_KEY
-    let apiURL = `https://dev.virtualearth.net/REST/v1/TimeZone/${lat},${lon}?key=${apiKey}`
+const findTimeZone = async (lat, lon, timestamp, format = "EEEE, dd LLL | hh:mm a") => {
+    const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
+    let apiURL = ` https://maps.googleapis.com/maps/api/timezone/json?location=${lat}%2C${lon}&timestamp=${timestamp}&key=${apiKey}`
+    console.log(apiURL)
     try {
         const res = await axios.get(apiURL)
-        const data = await res.data
-        console.log(data)
-        return data
+        const data = res.data
+
+        if (data.status === 'OK') {
+            const rawOffset = data.rawOffset;
+            const dstOffset = data.dstOffset;
+            const localTimeStamp = timestamp + rawOffset + dstOffset;
+            const formattedTime = DateTime.fromSeconds(localTimeStamp).toFormat(format)
+            return formattedTime
+        }
     } catch (err) {
         console.warn(err)
     }
 }
 
-const getLocalTime = (secs, lat, lon, format = "'cccc, dd LLL yyyy | hh:mm a'") => {
-    const currentDateTime = DateTime.local();
-    const timezone = findTimeZone(lat, lon)
-    return currentDateTime.setZone(timezone).toFormat(format);
-}
 
 // Fetch data from the OpenWeatehr MapAPI
 const getOpenWeatherMapAPI = async (city_name, unit) => {
@@ -35,7 +37,7 @@ const getOpenWeatherMapAPI = async (city_name, unit) => {
 }
 
 
-const deconstructOpenWeatherMapData = (data) => {
+const deconstructOpenWeatherMapData = async (data) => {
     const {
         coord: { lat, lon },
         main: { temp, feels_like, temp_min, temp_max, humidity },
@@ -46,9 +48,12 @@ const deconstructOpenWeatherMapData = (data) => {
         weather,
         wind: { speed }
     } = data
-    const dateTime = getLocalTime(dt, lat, lon)
+
+    const dateTime = await findTimeZone(lat, lon, dt)
+    const localSunrise = await findTimeZone(lat, lon, sunrise, "hh:mm a")
+    const localSunset = await findTimeZone(lat, lon, sunset, "hh:mm a")
     const { description, icon } = weather[0]
-    return { lat, lon, temp, feels_like, temp_max, temp_min, humidity, city, dateTime, country, sunrise, sunset, description, icon, speed, timezone }
+    return { lat, lon, temp, feels_like, temp_max, temp_min, humidity, city, dateTime, country, localSunrise, localSunset, description, icon, speed, timezone }
 }
 
 export const getDeconstructWeatherData = async (city_name, unit) => {
@@ -79,7 +84,6 @@ const deconstructHourlyWeatherAPIData = (data) => {
     const hourlyForecast = hour.map(h => {
         const { time: datetime, temp_c, temp_f, condition } = h
         const time = DateTime.fromFormat(datetime.split(' ')[1], 'HH:mm').toFormat('h a');
-        // const formattedTime = time.toFormat('h a');
         return { time, temp_c, temp_f, condition }
     })
 
@@ -108,7 +112,5 @@ const deconstructDailyWeatherAPIData = (data) => {
 
 export const getDeconstructDailyForecastData = async (city_name) => {
     const deconstructedData = await getWeatherAPI(city_name).then(deconstructDailyWeatherAPIData)
-
     return deconstructedData
 }
-

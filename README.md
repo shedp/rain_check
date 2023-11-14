@@ -17,7 +17,7 @@ You will need to make a `.env` file in the root directory containing 3 API keys:
 
     `REACT_APP_WEATHERAPI_KEY=your_key`
 
-    `REACT_APP_BING_API_KEY=your_key`
+    `REACT_APP_GOOGLE_API_KEY=your_key`
 
     `REACT_APP_UNSPLASH_KEY=your_key`
 
@@ -30,7 +30,8 @@ You will need to make a `.env` file in the root directory containing 3 API keys:
 - Axios
 - OpenWeatherMap API
 - Weather API
-- Bing Map API
+- Google Timezone API
+- Unsplash API
 
 ## Wins & Challenges
 ### Wins
