@@ -4,8 +4,7 @@ const { DateTime } = require('luxon');
 
 const findTimeZone = async (lat, lon, timestamp, format = "EEEE, dd LLL | hh:mm a") => {
     const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
-    let apiURL = ` https://maps.googleapis.com/maps/api/timezone/json?location=${lat}%2C${lon}&timestamp=${timestamp}&key=${apiKey}`
-    console.log(apiURL)
+    let apiURL = `https://maps.googleapis.com/maps/api/timezone/json?location=${lat}%2C${lon}&timestamp=${timestamp}&key=${apiKey}`
     try {
         const res = await axios.get(apiURL)
         const data = res.data

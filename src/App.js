@@ -1,4 +1,5 @@
 import './App.css';
+
 import Inputs from './components/Inputs';
 import TimeLoc from './components/TimeLoc';
 import Temperature from './components/Temperature';
