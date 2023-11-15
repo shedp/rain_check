@@ -50,3 +50,7 @@ You will need to make a `.env` file in the root directory containing 3 API keys:
 - [ ] Switch to a single weather API
 - [ ] Independent tooltip from Chart so that it doesn't refresh the chart when switching units
     (react-chartjs-2 does not offer this)
+- [ ] Refactor code - code is messy as I was coding on the fly
+
+###
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat&logo=appveyor)](https://opensource.org/licenses/MIT)
