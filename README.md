@@ -47,6 +47,6 @@ You will need to make a `.env` file in the root directory containing 3 API keys:
 - Converting using UTC and timezones to get local time
 
 ## Future
-- Switch to a single weather API
-- Independent tooltip from Chart so that it doesn't refresh the chart when switching units
+- [ ]Switch to a single weather API
+- [ ] Independent tooltip from Chart so that it doesn't refresh the chart when switching units
     (react-chartjs-2 does not offer this)
