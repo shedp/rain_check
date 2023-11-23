@@ -51,6 +51,7 @@ You will need to make a `.env` file in the root directory containing 3 API keys:
 - [ ] Independent tooltip from Chart so that it doesn't refresh the chart when switching units
     (react-chartjs-2 does not offer this)
 - [ ] Refactor code - code is messy as I was coding on the fly
+- [ ] Improve responsivity (mobile friendly)
 
 ###
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat&logo=appveyor)](https://opensource.org/licenses/MIT)
