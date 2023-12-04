@@ -65,7 +65,7 @@ function App() {
 
 
   return (
-    <div className={`content ${showContent ? 'visible' : ''} py-5 px-24 from-cyan-700 to-blue-700 h-full`}>
+    <div className={`content ${showContent ? 'visible' : ''} py-5 md-px-18 px-24 from-cyan-700 to-blue-700 h-full`}>
       {weather && (
         <>
 
