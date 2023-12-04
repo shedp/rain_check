@@ -30,6 +30,17 @@ function HourlyForecast({ forecast, unit }) {
                             ) : null
                         )}
                 </div>
+                <div className="flex-row items-center justify-between text-white" id={styles.responsive690}>
+                    {forecast &&
+                        forecast.hourlyForecast.map((hour, index) =>
+                            index % 3 === 0 ? (
+                                <div className="flex flex-col items-center justify-center" key={index}>
+                                    <p className="font-light text-sm">{hour.time}</p>
+                                </div>
+                            ) : null
+                        )}
+                </div>
+                
             </>
 
         </div>
