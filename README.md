@@ -23,6 +23,9 @@ You will need to make a `.env` file in the root directory containing 3 API keys:
 
     `REACT_APP_UNSPLASH_KEY=your_key`
 
+## Bugs
+- Sunrise and sunset times undefined due to Google API expiry
+
 ## Technologies
 - React.js
 - Tailwind.css
@@ -52,6 +55,7 @@ You will need to make a `.env` file in the root directory containing 3 API keys:
     (react-chartjs-2 does not offer this)
 - [ ] Refactor code - code is messy as I was coding on the fly
 - [ ] Improve responsivity (mobile friendly)
+- [ ] Find replacement for Google API
 
 ###
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat&logo=appveyor)](https://opensource.org/licenses/MIT)
